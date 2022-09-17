@@ -32,10 +32,15 @@ export default function Product() {
     try {
       await destroy({productId})
       loadProducts();
-      setIsOpenDeleteModal(false);      
+      setIsOpenDeleteModal(false);   
      } catch (error) {
       console.log(error)
      }
+  }
+
+  const productAdd = () => {
+    openModal();
+    setProduct(null);
   }
 
   const productEdit = (product) => {
@@ -47,7 +52,7 @@ export default function Product() {
     },[])
 
     return <>
-          <Button type="button" onClick={openModal}>
+          <Button type="button" onClick={productAdd}>
             Add New
           </Button>
             
